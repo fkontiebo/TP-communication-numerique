@@ -63,6 +63,7 @@
 \newcommand{\TEB}{\mathrm{TEB}}
 \newcommand{\code}[1]{\texttt{\small #1}}
 \newcommand{\bloc}[1]{\textit{#1}}
+\newcommand{\err}{\textcolor{red}{\ensuremath{\blacksquare}}}   % caractère reçu invalide
 
 \begin{document}
 
@@ -118,7 +119,7 @@
 \vfill
 \begin{center}
   {\color{bleu}\rule{0.8\paperwidth}{0.6pt}}\\[3mm]
-  {\small\color{gray} Codage de source \;·\; Chaîne de base \;·\; Codage de canal (Hamming) \;·\; Modulation QPSK \;·\; Mise en forme RRC}
+  {\small\color{gray} Codage de source \;·\; Chaîne de base \;·\; Codage de canal (Hamming) \;·\; Modulation QPSK \;·\; Mise en forme RRC \;·\; Canal à deux trajets}
 \end{center}
 \end{titlepage}
 \restoregeometry
@@ -127,9 +128,9 @@
 % =============================================================================
 \section{Introduction}
 % =============================================================================
-L'objectif de ce TP est de construire, bloc par bloc, une chaîne de transmission numérique complète et de mesurer, à chaque étape, ce qu'apporte le bloc ajouté. On commence par le \textbf{codage de source}, étudié seul (entropie, Huffman, Lempel-Ziv), puis on modélise une \textbf{chaîne de base} source--canal--décision, à laquelle on ajoute successivement un \textbf{code correcteur} de Hamming (7,4), une \textbf{modulation QPSK} et des \textbf{filtres de mise en forme} en racine de cosinus surélevé. Les performances sont évaluées par le taux d'erreur binaire (TEB) en fonction de $\EbNo$, systématiquement confronté à la théorie et aux limites de Shannon, ainsi qu'en termes de débit et d'occupation spectrale.
+L'objectif de ce TP est de construire, bloc par bloc, une chaîne de transmission numérique complète et de mesurer, à chaque étape, ce qu'apporte le bloc ajouté. On commence par le \textbf{codage de source}, étudié seul (entropie, Huffman, Lempel-Ziv), puis on modélise une \textbf{chaîne de base} source--canal--décision, à laquelle on ajoute successivement un \textbf{code correcteur} de Hamming (7,4), une \textbf{modulation QPSK} et des \textbf{filtres de mise en forme} en racine de cosinus surélevé ; on termine par un \textbf{canal à deux trajets} (écho), qui motive l'égalisation, et par la transmission d'un texte. Les performances sont évaluées par le taux d'erreur binaire (TEB) en fonction de $\EbNo$, systématiquement confronté à la théorie et aux limites de Shannon, ainsi qu'en termes de débit et d'occupation spectrale.
 
-\textbf{Méthode et reproductibilité.} Le codage de source est réalisé par des fonctions Matlab ; les parties 3 à 6 sous Simulink (solveur discret à pas fixe $T_e=T_b/L$, sous-systèmes, changements de rythme par \bloc{Buffer/Unbuffer/Rate Transition}). Tous les paramètres sont regroupés dans \code{Parametres.m}. Chaque courbe de TEB est pilotée par une fonction commune \code{trace\_TEB.m} qui, pour chaque $\EbNo$, calcule $\sigma^2 = N_0/(2T_e)$, lance \code{sim} et arrête la mesure après \textbf{100 erreurs ou $10^6$ bits}, avec un intervalle de confiance à 95\,\% $\hat p \pm 1,96\sqrt{\hat p(1-\hat p)/N}$. Les retards introduits par les blocs sont \textbf{recherchés automatiquement} (simulation sans bruit : seul le bon retard donne 0 erreur). Le script \code{run\_all.m} rejoue l'intégralité du TP et régénère, à l'identique, toutes les figures de ce rapport ; les sorties numériques complètes sont dans le dossier \code{resultats/} du dépôt.
+\textbf{Méthode et reproductibilité.} Le codage de source est réalisé par des fonctions Matlab ; les parties 3 à 7 sous Simulink (solveur discret à pas fixe $T_e=T_b/L$, sous-systèmes, changements de rythme par \bloc{Buffer/Unbuffer/Rate Transition}). Tous les paramètres sont regroupés dans \code{Parametres.m}. Chaque courbe de TEB est pilotée par une fonction commune \code{trace\_TEB.m} qui, pour chaque $\EbNo$, calcule $\sigma^2 = N_0/(2T_e)$, lance \code{sim} et arrête la mesure après \textbf{100 erreurs ou $10^6$ bits}, avec un intervalle de confiance à 95\,\% $\hat p \pm 1,96\sqrt{\hat p(1-\hat p)/N}$. Les retards introduits par les blocs sont \textbf{recherchés automatiquement} (simulation sans bruit : seul le bon retard donne 0 erreur). Le script \code{run\_all.m} rejoue l'intégralité du TP et régénère, à l'identique, toutes les figures de ce rapport ; les sorties numériques complètes sont dans le dossier \code{resultats/} du dépôt.
 
 \begin{table}[H]
 \centering\small
@@ -384,6 +385,64 @@ la continuité étant vérifiée numériquement. Les coefficients normalisés co
 \textbf{Décalage de l'instant d'échantillonnage de $T/4$ (fig.~\ref{fig:p6teb}b et~\ref{fig:oeil}).} Pour $\alpha = 0,22$, l'œil est étroit : à $T/4$ de l'instant optimal, les trajectoires sont très dispersées, la constellation s'étale en nuages diffus et le TEB est multiplié par 17 à 6~dB ($3,96\cdot10^{-2}$ contre $2,39\cdot10^{-3}$). Il plafonne vers $2\cdot10^{-2}$ à 9~dB, car l'IES, indépendante du bruit, impose un plancher d'erreurs. Pour $\alpha = 1$, les queues de $h$ décroissent beaucoup plus vite, l'œil est large et les trajectoires restent groupées : la perte se réduit pour l'essentiel à une baisse d'amplitude utile ($1,5\cdot10^{-2}$ à 6~dB, $1,8\cdot10^{-3}$ à 9~dB). On retrouve le \textbf{compromis entre bande et robustesse à la synchronisation} : un faible roll-off économise de la bande ($0,61/T$ contre $1/T$), mais il exige une récupération de rythme précise.
 
 % =============================================================================
+\section{Complément : canal à deux trajets}
+% =============================================================================
+Le modèle \code{chaine\_P7.slx} reprend la chaîne QPSK + RRC de la partie~6 et insère, entre le filtre d'émission et l'addition du bruit, le canal $h_c(t) = \delta(t) + \beta\,\delta(t-\tau)$ avec $\beta = 0,23$ et $\tau = 2T$ : c'est un \bloc{Discrete FIR Filter} de coefficients $[1, 0, \dots, 0, \beta]$ ($\tau L = 32$ échantillons d'écart). Il comporte aussi un égaliseur optionnel après le filtre adapté, une source commutable (bits aléatoires ou bloc \bloc{From Workspace}) et un bloc \bloc{To Workspace} pour les bits décidés. Le trajet principal n'étant pas retardé, le retard trouvé automatiquement reste $D_7 = 24$ bits. $\EbNo$ est défini par l'énergie émise sur le trajet principal.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.86\linewidth]{partie7_canal_1.png}
+\caption{Canal à deux trajets : diagrammes de l'œil sans bruit (sans écho, avec écho, avec écho et égaliseur ZF), réponse globale $h*h_c*h(-t)$ et constellations à 10~dB.}
+\label{fig:p7}
+\end{figure}
+
+\textbf{Dégradation et critère de Nyquist (fig.~\ref{fig:p7}).} La réponse globale échantillonnée vaut $g(kT) = \delta_k + \beta\,\delta_{k-2}$ (mesuré : 1 en $k = 0$, $0,23$ en $k = 2$, moins de $7\cdot10^{-3}$ ailleurs) : la chaîne \textbf{ne vérifie plus le critère de Nyquist}. Sur chaque voie, l'échantillon de décision vaut $(a_k + \beta a_{k-2})/\sqrt2 + n_k$ : l'œil présente quatre niveaux $\pm(1\pm\beta)/\sqrt2$ et son ouverture passe de $0,69$ à $0,53$ (rapport $1-\beta$). La moitié des symboles perd donc $20\log_{10}(1-\beta) = -2,3$~dB d'amplitude, l'autre moitié en gagne, d'où
+\[
+  \TEB_{\text{écho}} = \tfrac12\Big[Q\big((1+\beta)\sqrt{2\EbNo}\big) + Q\big((1-\beta)\sqrt{2\EbNo}\big)\Big],
+\]
+dominé par le second terme. Les points simulés suivent cette expression (fig.~\ref{fig:p7teb}) : il faut \textbf{10,24~dB} au lieu de 8,40~dB pour atteindre $10^{-4}$ (\textbf{perte de 1,8~dB}) et le TEB est multiplié par 13 à 9~dB. Comme $\beta < 1$, l'œil reste ouvert : il n'y a pas de plancher d'erreurs, contrairement au décalage de $T/4$ de la partie~6.
+
+\begin{figure}[!htb]
+\centering
+\begin{minipage}[c]{0.45\linewidth}\centering
+  \includegraphics[width=\linewidth]{partie7_canal_2.png}
+  \captionof{figure}{TEB simulés et théoriques sur le canal à deux trajets.}
+  \label{fig:p7teb}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.52\linewidth}\centering\small
+  \begin{tabular}{@{}llcc@{}}
+  \toprule
+  Canal & $\EbNo$, code & TEB & octets faux \\
+  \midrule
+  sans écho & 3 dB, non codé  & $2,5\cdot10^{-2}$ & 18,2\,\% \\
+            & 3 dB, Hamming   & $4,3\cdot10^{-2}$ & 18,8\,\% \\
+            & 6 dB, non codé  & $2,0\cdot10^{-3}$ & 1,6\,\% \\
+            & 6 dB, Hamming   & $4,5\cdot10^{-3}$ & 1,6\,\% \\
+  \midrule
+  écho      & 3 dB, non codé  & $3,4\cdot10^{-2}$ & 23,4\,\% \\
+            & 3 dB, Hamming   & $5,1\cdot10^{-2}$ & 21,4\,\% \\
+            & 6 dB, non codé  & $8,1\cdot10^{-3}$ & 6,5\,\% \\
+            & 6 dB, Hamming   & $1,1\cdot10^{-2}$ & 4,9\,\% \\
+  \bottomrule
+  \end{tabular}
+  \captionof{table}{Transmission d'un extrait de \textit{Candide} (296 caractères, 308 octets UTF-8, 2464 bits), sans égaliseur.}
+  \label{tab:texte}
+\end{minipage}
+\end{figure}
+
+\textbf{Égaliseur (question 2).} L'écho est un post-curseur pur et $|\beta| < 1$ : $H_c(z) = 1 + \beta z^{-\tau L}$ est à phase minimale, donc son inverse $1/H_c(z)$ est un filtre récursif \textbf{stable}. Placé après le filtre adapté (bloc \bloc{Discrete Filter}, dénominateur $h_c$), cet égaliseur à \textbf{forçage à zéro} restitue exactement la réponse de Nyquist : l'œil retrouve son ouverture de $0,69$ et la constellation ses quatre nuages. Le prix est une amplification du bruit : sa variance devient $\sigma^2\sum_i \beta^{2i} = \sigma^2/(1-\beta^2)$, soit une pénalité de \textbf{0,24~dB} seulement ($10^{-4}$ à 8,63~dB, vérifié par simulation). Il faut connaître ou \textbf{estimer $\beta$ et $\tau$} (plus généralement la réponse impulsionnelle du canal), par exemple par corrélation avec une séquence d'apprentissage connue en début de trame, puis suivre leurs variations (algorithme LMS). Pour un écho plus fort ($\beta \to 1$), le ZF amplifierait fortement le bruit : on lui préfèrerait un égaliseur MMSE, un égaliseur à retour de décision (qui soustrait $\beta\,\hat a_{k-\tau}$ sans amplifier le bruit, naturel ici puisque l'écho est un post-curseur), voire une détection au maximum de vraisemblance (Viterbi).
+
+\textbf{Transmission d'un texte (tab.~\ref{tab:texte}).} Le texte est converti en octets UTF-8 puis en bits (\code{unicode2native}, \code{dec2bin}), injecté par \bloc{From Workspace} (\code{choix\_source = 1}), récupéré par \bloc{To Workspace}, réaligné de $D_7$ bits et reconverti. Sur le canal à écho, à 3~dB, le texte est à peine lisible ; à 6~dB, il se lit sans difficulté :
+\begin{center}\small
+\begin{tabular}{@{}l@{\hspace{3mm}}l@{}}
+3~dB, non codé & \texttt{Ml y avem\err{} en Vesvph\err{}lae, dcns no ch\err{}te@w de M. le"barov Dg UhuNdgr-\err{}en-tronbkh} \\
+6~dB, non codé & \texttt{Il y avai\err{} en Vestphalie, dcns ng châte`u de M. le barof de Thunder-ten-tronckh} \\
+6~dB, Hamming  & \texttt{Il y avait en Vestphalie, dans le clâteau de M\# le baron du Thun\$er-Den-tronckX}
+\end{tabular}
+\end{center}
+Une erreur sur un bit de poids faible transforme une lettre en sa voisine dans la table ASCII (\texttt{e}$\to$\texttt{g}, \texttt{a}$\to$\texttt{`}, espace$\to$\texttt{"}) ; une erreur dans un caractère accentué (2 octets en UTF-8) produit une séquence invalide (\err). \textbf{Le code de Hamming n'améliore pas le TEB} à ces rapports signal sur bruit : on est sous le seuil de 5,9~dB de la partie~4, où l'énergie réduite des bits codés ($4/7\,E_b$) coûte plus que la correction ne rapporte, et un mot de 7 bits portant deux erreurs est « corrigé » en un mot à trois erreurs. Ces erreurs étant regroupées dans un même demi-octet, le nombre d'octets faux diminue légèrement à 6~dB sur le canal à écho (4,9 contre 6,5\,\%). Sur 2464 bits seulement, ces chiffres restent indicatifs (quelques dizaines d'erreurs).
+
+% =============================================================================
 \section{Conclusion}
 % =============================================================================
 \begin{table}[!htb]
@@ -396,7 +455,8 @@ Codage de source & --- & 7 $\to$ 4,58 bit/car. (Huffman), 2,51 (bzip2) \\
 Détecteur optimal (intégrateur) & +12~dB par rapport à 1 échantillon/bit ; $10^{-4}$ à 8,4~dB & inchangés \\
 Hamming (7,4) & perte sous 5,9~dB ; gain de 0,3~dB à $10^{-4}$ & débit canal et bande $\times$ 7/4 ; latence $\approx$ 1 bloc \\
 QPSK (Gray) & inchangé ($-0,23$~dB en mapping naturel) & bande $\div$ 2 \\
-Mise en forme RRC ($\alpha = 0,35$) & inchangé ($\approx$ 0,1~dB de troncature) ; sensible au rythme & bande à 99\,\% : 5,56/$T$ $\to$ 0,58/$T$ \\
+Mise en forme RRC ($\alpha = 0,35$) & inchangé ($\approx$ 0,1~dB de troncature) ; sensible au rythme & bande à 99\,\% : 5,56/$T$ $\to$ 0,58/$T$ \
+Canal à 2 trajets + égaliseur ZF & écho : $-1,8$~dB à $10^{-4}$ ; après ZF : $-0,24$~dB & inchangés (séquence d'apprentissage à prévoir) \\
 \bottomrule
 \end{tabular}
 \caption{Synthèse de l'apport de chaque bloc.}
@@ -405,6 +465,6 @@ Mise en forme RRC ($\alpha = 0,35$) & inchangé ($\approx$ 0,1~dB de troncature)
 
 Ce TP a permis de construire une chaîne complète, validée à chaque étape par la théorie : les courbes de TEB simulées tombent dans leur intervalle de confiance autour des expressions analytiques, ce qui valide à la fois les modèles et la méthode (énergie par bit d'information constante, compensation automatique des retards, 100 erreurs par point). Le codage de source retire la redondance et produit des bits quasi équiprobables, ce qui justifie le modèle de source utilisé ensuite. Côté transmission, ce sont le \textbf{filtrage adapté} (12~dB) et le \textbf{choix de la modulation et de la mise en forme} (bande divisée par 2, puis par près de 10, sans perte de TEB) qui apportent le plus. Le code de Hamming apporte peu : 0,3~dB à $10^{-4}$ pour 75\,\% de bande supplémentaire.
 
-\textbf{Par rapport aux limites de Shannon}, la chaîne non codée atteint $10^{-4}$ à 8,4~dB et la chaîne codée à 8,1~dB, alors qu'une transmission fiable est possible dès 0,24~dB au rendement 4/7 ($-1,59$~dB à rendement nul) : il reste \textbf{près de 8~dB} à gagner, que seuls des codes longs à décodage souple (convolutifs, turbo-codes, LDPC) permettent d'approcher. La partie~7 (canal à deux trajets, $\beta = 0,23$, $\tau = 2T$), non traitée, constituerait la suite naturelle : l'écho rompt le critère de Nyquist de la chaîne et impose un égaliseur (forçage à zéro ou MMSE), qui nécessite d'estimer la réponse du canal, par exemple à l'aide d'une séquence d'apprentissage.
+\textbf{Par rapport aux limites de Shannon}, la chaîne non codée atteint $10^{-4}$ à 8,4~dB et la chaîne codée à 8,1~dB, alors qu'une transmission fiable est possible dès 0,24~dB au rendement 4/7 ($-1,59$~dB à rendement nul) : il reste \textbf{près de 8~dB} à gagner, que seuls des codes longs à décodage souple (convolutifs, turbo-codes, LDPC) permettent d'approcher. Enfin, un canal réel n'est pas idéal : un simple écho ($\beta = 0,23$, $\tau = 2T$) rompt le critère de Nyquist construit en partie~6 et coûte 1,8~dB ; un égaliseur à forçage à zéro le compense presque entièrement (0,24~dB de pénalité), à condition d'estimer la réponse du canal. La transmission d'un texte rend ces chiffres concrets : à 6~dB, quelques lettres changées n'empêchent pas la lecture, alors qu'à 3~dB le texte devient difficile à lire, et un code aussi court que Hamming (7,4) ne suffit pas à le rétablir.
 
 \end{document}

@@ -90,6 +90,11 @@ D7     = 0;             % retard des bits de chaine_P6 -> trouvé par partie6_ch
 %% Canal à 2 trajets (partie 7) : hc(t) = delta(t) + beta*delta(t - tau)
 beta = P.beta;
 tau  = P.retard_trajet; % en durées symbole
+% Modèle chaine_P7.slx : FIR du canal au pas Te_s (écho tau*L échantillons plus tard)
+hc     = [1 zeros(1, tau*L - 1) beta];   % hc = 1 : canal sans écho (= chaine_P6)
+eq_den = 1;             % égaliseur ZF 1/Hc(z) : eq_den = hc ; eq_den = 1 : sans égaliseur
+choix_source = 0;       % 0 : bits aléatoires ; 1 : bits de src_bits (From Workspace)
+src_bits = [0 0];       % [t, bits] injectés quand choix_source = 1 (partie7_canal)
 
 %% Pilotage des simulations
 EbN0_vec = 0:9;         % plage des courbes de TEB (dB)

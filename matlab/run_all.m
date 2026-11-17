@@ -15,7 +15,7 @@ tous = {'partie2_1', 'partie2_2', 'partie2_3', 'partie2_4', 'partie2_5', ...
         'partie4_hamming', 'partie4_codeur_simulink', ...
         'partie4_decodeur_simulink', 'partie4_chaine', ...
         'partie5_qpsk', 'partie5_q6', ...
-        'partie6_filtres', 'partie6_chaine'};
+        'partie6_filtres', 'partie6_chaine', 'partie7_canal'};
 if nargin < 1, scripts = tous; end
 
 racine = fileparts(mfilename('fullpath'));
@@ -59,7 +59,7 @@ end
 function exporter_modeles(d)
 if ~exist(d, 'dir'), mkdir(d); end
 modeles = {'chaine_P3', 'codeur_hamming', 'decodeur_hamming', 'chaine_P4', ...
-           'chaine_P5', 'chaine_P5c', 'chaine_P6'};
+           'chaine_P5', 'chaine_P5c', 'chaine_P6', 'chaine_P7'};
 for i = 1:numel(modeles)
     try
         load_system(modeles{i});

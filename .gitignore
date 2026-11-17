@@ -28,3 +28,6 @@ rapport/rapport_latex_overleaf.zip
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# --- Texte de la vidéo (support personnel d'enregistrement) ---
+video/

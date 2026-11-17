@@ -4,10 +4,26 @@ TP de **Théorie de l'information et du codage** — ENSIM 5A ASTRE, 2026-2027
 Auteur : **Bénéwindé KONTIEBO**
 
 Modélisation et simulation, étape par étape, d'une chaîne de transmission numérique complète :
-codage de source → codage de canal → modulation QPSK → mise en forme RRC → canal AWGN → filtre adapté → décision → décodage.
+codage de source → codage de canal → modulation QPSK → mise en forme RRC → canal à deux trajets + AWGN → filtre adapté → (égaliseur) → décision → décodage.
 À chaque étape, la chaîne est validée puis comparée à la précédente (TEB, débit, occupation spectrale) et aux bornes théoriques (Shannon).
 
-📄 **Compte rendu : [`rapport/rapport.pdf`](rapport/rapport.pdf)** — source LaTeX dans [`rapport/latex/`](rapport/latex/) (compilation pdfLaTeX, par exemple sur Overleaf)
+📄 **Compte rendu : [`rapport/rapport_Benewinde_Kontiebo.pdf`](rapport/rapport_Benewinde_Kontiebo.pdf)** — source LaTeX dans [`rapport/latex/`](rapport/latex/) (compilation pdfLaTeX, par exemple sur Overleaf)
+
+🎥 **Vidéo de présentation (≈ 30 min) : [regarder la vidéo](LIEN_VIDEO)** — tout le TP expliqué : code, modèles Simulink, démonstrations en direct et résultats.
+
+| Temps | Chapitre |
+|:--:|---|
+| 0:00 | Introduction : la chaîne complète |
+| 2:00 | Organisation du code et méthode (paramètres, `trace_TEB`, recherche automatique des retards, reproductibilité) |
+| 5:00 | Partie 2 – Codage de source : entropie, Huffman sur *Candide*, extension de source, compresseurs, LZ78 |
+| 10:00 | Partie 3 – Chaîne de base : CBS, seuils optimaux, détecteur optimal (intégrateur) sous Simulink |
+| 14:30 | Partie 4 – Code de Hamming (7,4) : matrices G/H, syndrome, codeur à registre, gain de codage |
+| 19:00 | Partie 5 – Modulation QPSK : mapping de Gray, constellations, Hamming + QPSK |
+| 22:00 | Partie 6 – Filtre en racine de cosinus surélevé : Nyquist, spectre, diagramme de l'œil, décalage T/4 |
+| 26:00 | Partie 7 – Canal à deux trajets : perte de Nyquist, égaliseur ZF, transmission d'un texte |
+| 29:30 | Conclusion et limites de Shannon |
+
+Les démonstrations de la vidéo se rejouent avec `demo_video` (dans `matlab/`, après `init_tp`).
 
 ---
 
@@ -20,6 +36,7 @@ codage de source → codage de canal → modulation QPSK → mise en forme RRC �
 | 4 | Codage de canal | Hamming C(7,4) cyclique : matrices G/H, syndrome, codeur à registre LFSR, décodeur, gain de codage | Matlab + Simulink |
 | 5 | Modulation | QPSK Gray / naturel, constellations, chaîne Hamming + QPSK | Simulink |
 | 6 | Mise en forme | Filtre porte et racine de cosinus surélevé, critère de Nyquist, DSP, diagramme de l'œil, décalage T/4 | Matlab + Simulink |
+| 7 | Canal à deux trajets | Écho β·δ(t − τ), perte de Nyquist, œil, TEB, égaliseur ZF, transmission d'un texte (From/To Workspace) avec et sans Hamming | Matlab + Simulink |
 
 ## Organisation du dépôt
 
@@ -27,10 +44,10 @@ codage de source → codage de canal → modulation QPSK → mise en forme RRC �
 .
 ├── README.md
 ├── rapport/
-│   ├── rapport.pdf             # compte rendu compilé (≤ 10 pages)
+│   ├── rapport_Benewinde_Kontiebo.pdf  # compte rendu compilé (10 pages + garde)
 │   └── latex/
 │       ├── rapport.tex         # source LaTeX du compte rendu (pdfLaTeX)
-│       └── figures/            # les 15 figures utilisées dans le rapport
+│       └── figures/            # les 17 figures utilisées dans le rapport
 ├── figures/                    # toutes les figures, régénérées par run_all.m
 │   └── modeles/                # schémas des modèles Simulink
 ├── resultats/                  # sorties console de chaque script (valeurs numériques)
@@ -38,6 +55,7 @@ codage de source → codage de canal → modulation QPSK → mise en forme RRC �
     ├── init_tp.m               # se place dans matlab/ + chemins + paramètres
     ├── chemins_tp.m            # ajoute les sous-dossiers au chemin Matlab
     ├── run_all.m               # rejoue tout le TP, exporte figures et résultats
+    ├── demo_video.m            # démonstrations courtes de la vidéo (une étape par partie)
     ├── Parametres.m            # paramètres communs (Tb, A, L, Eb/N0, retards...)
     ├── parametres_perso.m      # tirage des paramètres personnels
     ├── mes_parametres.mat      # paramètres personnels figés (reproductibilité)
@@ -46,7 +64,8 @@ codage de source → codage de canal → modulation QPSK → mise en forme RRC �
     ├── partie3_chaine_base/    # canaux CBS / uniforme / gaussien, chaine_P3.slx
     ├── partie4_codage_canal/   # Hamming (7,4), codeur/décodeur Simulink, chaine_P4.slx
     ├── partie5_modulation_qpsk/# chaine_P5.slx (QPSK), chaine_P5c.slx (Hamming + QPSK)
-    └── partie6_mise_en_forme/  # rrc_coef.m, chaine_P6.slx (porte / RRC)
+    ├── partie6_mise_en_forme/  # rrc_coef.m, chaine_P6.slx (porte / RRC)
+    └── partie7_canal/          # chaine_P7.slx (écho + égaliseur ZF + source texte)
 ```
 
 ## Reproduire les résultats
@@ -61,7 +80,7 @@ git clone https://github.com/fkontiebo/TP-communication-numerique.git
 
 ```matlab
 cd TP-communication-numerique/matlab
-run_all            % rejoue tout le TP (≈ 6 min) : régénère figures/ et resultats/
+run_all            % rejoue tout le TP (≈ 8 min) : régénère figures/ et resultats/
 ```
 
 Les résultats sont **identiques bit à bit** à ceux du dépôt et du rapport :
@@ -91,6 +110,7 @@ open_system('chaine_P4')   % ...ou un modèle : il s'exécute directement (bouto
 | `partie4_chaine` | TEB avec / sans codage, limites de Shannon | `chaine_P3`, `chaine_P4` |
 | `partie5_qpsk`, `partie5_q6` | QPSK Gray / naturel, Hamming + QPSK | `chaine_P5`, `chaine_P5c` |
 | `partie6_filtres`, `partie6_chaine` | RRC, Nyquist, DSP, œil, décalage T/4 | `chaine_P6` |
+| `partie7_canal` | canal à deux trajets, égaliseur ZF, transmission d'un texte | `chaine_P7` |
 
 ## Conventions
 

@@ -5,7 +5,7 @@ function racine = chemins_tp()
 %   (partie2_2, partie2_4) : chaque script peut ainsi être lancé seul.
 racine = fileparts(mfilename('fullpath'));
 dossiers = {'', 'commun', 'partie2_codage_source', 'partie3_chaine_base', ...
-            'partie4_codage_canal', 'partie5_modulation_qpsk', 'partie6_mise_en_forme'};
+            'partie4_codage_canal', 'partie5_modulation_qpsk', 'partie6_mise_en_forme', 'partie7_canal'};
 for i = 1:numel(dossiers)
     addpath(fullfile(racine, dossiers{i}));
 end

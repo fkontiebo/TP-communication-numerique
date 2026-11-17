@@ -1,0 +1,105 @@
+##### partie7_canal (17-Nov-2026 21:25:25) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+Canal : beta = 0.23, tau = 2 T (32 échantillons)
+
+=== Recherche du retard (sigma2 = 0, canal à 2 trajets) ===
+D7 = 24 (9 erreurs de remplissage / 2001 bits)
+
+=== Q1 : réponse globale aux instants kT (k = -4..6) ===
+sans écho : [0.001 -0.001 0 0 1 0 0 -0.001 0.001 -0.006 0.002]
+avec écho : [0.002 -0.002 0.001 0 1 0 0.23 -0.001 0.001 -0.007 0.002]
+-> IES = beta = 0.23 au symbole k = tau = 2 : critère de Nyquist non vérifié
+Ouverture de l'œil (voie I, sans bruit) : 0.707 -> 0.544 (facteur 1 - beta = 0.77)
+
+Ouverture mesurée de l'œil (min |y_I| aux instants de décision) :
+  sans écho              : 0.692
+  écho                   : 0.526
+  écho + égaliseur ZF    : 0.692
+
+--- TEB, sans écho ---
+Eb/N0 =  0.0 dB :    100 erreurs /     1087 bits -> TEB = 9.200e-02
+Eb/N0 =  1.0 dB :    100 erreurs /     1558 bits -> TEB = 6.418e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     2402 bits -> TEB = 4.163e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     3661 bits -> TEB = 2.731e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     7265 bits -> TEB = 1.376e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    17353 bits -> TEB = 5.763e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    44487 bits -> TEB = 2.248e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   113473 bits -> TEB = 8.813e-04
+Eb/N0 =  8.0 dB :    100 erreurs /   461524 bits -> TEB = 2.167e-04
+Eb/N0 =  9.0 dB :     44 erreurs /  1050001 bits -> TEB = 4.190e-05
+
+--- TEB, écho ---
+Eb/N0 =  0.0 dB :    100 erreurs /      905 bits -> TEB = 1.105e-01
+Eb/N0 =  1.0 dB :    100 erreurs /     1196 bits -> TEB = 8.361e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     1740 bits -> TEB = 5.747e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     2571 bits -> TEB = 3.890e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     3741 bits -> TEB = 2.673e-02
+Eb/N0 =  5.0 dB :    100 erreurs /     6880 bits -> TEB = 1.453e-02
+Eb/N0 =  6.0 dB :    100 erreurs /    13196 bits -> TEB = 7.578e-03
+Eb/N0 =  7.0 dB :    100 erreurs /    29525 bits -> TEB = 3.387e-03
+Eb/N0 =  8.0 dB :    100 erreurs /    70286 bits -> TEB = 1.423e-03
+Eb/N0 =  9.0 dB :    100 erreurs /   176620 bits -> TEB = 5.662e-04
+
+--- TEB, écho + égaliseur ZF ---
+Eb/N0 =  0.0 dB :    100 erreurs /     1031 bits -> TEB = 9.699e-02
+Eb/N0 =  1.0 dB :    100 erreurs /     1362 bits -> TEB = 7.342e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     2255 bits -> TEB = 4.435e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     3614 bits -> TEB = 2.767e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     6369 bits -> TEB = 1.570e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    12202 bits -> TEB = 8.195e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    31198 bits -> TEB = 3.205e-03
+Eb/N0 =  7.0 dB :    100 erreurs /    87494 bits -> TEB = 1.143e-03
+Eb/N0 =  8.0 dB :    100 erreurs /   279118 bits -> TEB = 3.583e-04
+Eb/N0 =  9.0 dB :     72 erreurs /  1050001 bits -> TEB = 6.857e-05
+
+=== Synthèse TEB ===
+Eb/N0    sans écho                  écho                       écho + égaliseur ZF       
+   0 dB   sim 9.20e-02 / th 7.86e-02    sim 1.10e-01 / th 8.95e-02    sim 9.70e-02 / th 8.44e-02  
+   1 dB   sim 6.42e-02 / th 5.63e-02    sim 8.36e-02 / th 6.82e-02    sim 7.34e-02 / th 6.13e-02  
+   2 dB   sim 4.16e-02 / th 3.75e-02    sim 5.75e-02 / th 4.97e-02    sim 4.43e-02 / th 4.16e-02  
+   3 dB   sim 2.73e-02 / th 2.29e-02    sim 3.89e-02 / th 3.45e-02    sim 2.77e-02 / th 2.59e-02  
+   4 dB   sim 1.38e-02 / th 1.25e-02    sim 2.67e-02 / th 2.26e-02    sim 1.57e-02 / th 1.46e-02  
+   5 dB   sim 5.76e-03 / th 5.95e-03    sim 1.45e-02 / th 1.37e-02    sim 8.20e-03 / th 7.19e-03  
+   6 dB   sim 2.25e-03 / th 2.39e-03    sim 7.58e-03 / th 7.58e-03    sim 3.21e-03 / th 3.02e-03  
+   7 dB   sim 8.81e-04 / th 7.73e-04    sim 3.39e-03 / th 3.72e-03    sim 1.14e-03 / th 1.03e-03  
+   8 dB   sim 2.17e-04 / th 1.91e-04    sim 1.42e-03 / th 1.56e-03    sim 3.58e-04 / th 2.73e-04  
+   9 dB   sim 4.19e-05 / th 3.36e-05    sim 5.66e-04 / th 5.37e-04    sim 6.86e-05 / th 5.25e-05  
+
+Eb/N0 théorique pour TEB = 1e-4 :
+  sans écho              : 8.40 dB
+  écho                   : 10.24 dB
+  écho + égaliseur ZF    : 8.63 dB
+Pénalité ZF théorique : 10 log10(1/(1-beta^2)) = 0.24 dB
+
+=== Q3 : transmission d'un texte ===
+296 caractères -> 308 octets (UTF-8) -> 2464 bits
+Texte émis :
+  Il y avait en Vestphalie, dans le château de M. le baron de Thunder-ten-tronckh, un jeune garçon à qui la nature avait donné les moeurs les plus douces. Sa physionomie annonçait son âme. Il avait le jugement assez droit, avec l’esprit le plus simple; c’est, je crois, pour cette raison qu’on le n
+
+[sans écho, 3 dB, sans Hamming] TEB = 2.48e-02 (61/2464), octets faux = 56/308 (18.2 %)
+  Ml y avai� en Vestphalie, `cns no châte@w de M. le"�arof De Thuodgr-�en-tr�nckh, un�Jeune0g!r��gn à`qui"la n`tur� ava)t donné les moeurs$lgs plus douces. Sa plycionomie annnnç!it0son ��me. Hl0Avait!le zugement0a{sez drg)t, avmc l‹erprit le plus si}ple; c’ert, j� crois,(�gur ceVte raison qu�on le n
+
+[sans écho, 3 dB, avec Hamming] TEB = 4.30e-02 (106/2464), octets faux = 58/308 (18.8 %)
+  Il y avait mn Ves�}hglie, dans lu c�âtoau$de M#�le aaro�!du Tiun$er-Den-trofckX, ul jeune garçon à quy lp nadre a6kit!donn�	 les*moeurs les plusPdouces. Se phycionomie�jnnonç�it son âme. Il a{adt le,jugemenv assoz drbit,!afec ’�spri� lh plup sim@le[ c⌙est, je c�ois, pour cette r!ison quごom le0n
+
+[sans écho, 6 dB, sans Hamming] TEB = 2.03e-03 (5/2464), octets faux = 5/308 (1.6 %)
+  Il y avait en Vestphalie, dans le château de M. le baron de Thunder-ten-tronckh, un jeune garçgn à qui"la nature avait donné les moeurs$les plus douces. Sa physionomie annonçait son ��me. Il avait le jugement assez dro)t, avec l’esprit le plus simple; c’est, je crois, pour cette raison qu’on le n
+
+[sans écho, 6 dB, avec Hamming] TEB = 4.46e-03 (11/2464), octets faux = 5/308 (1.6 %)
+  Il y avait en Vest}halie, dans le château de M.�le baron de Thunder-ten-tronckh, un jeune garçon à qui la nature avait donné les moeurs les plus douces. Sa phycionomie�annonçait son âme. Il avait le jugement assez droit, avec ’esprit le plus simple; c’est, je crois, pour cette raison qu’on le n
+
+[écho, 3 dB, sans Hamming] TEB = 3.41e-02 (84/2464), octets faux = 72/308 (23.4 %)
+  Ml y avem� en Vesvph�lae, dcns no chǢte@w de M. le"barov Dg UhuNdgr-�en-tronbkh, un�Jeune0gar��gn�à qui"la N`ture ava*t dofné les lgeurs$lgs pl�s"douces. Sa plycionomi� annfnç`it"son Ţ-e. Hn AVaiv le juweednt assez drg)t,�avec l’esprit le plus si=plg c’ert, j� cvois, pgur cuVte reiso� q5�on le n
+
+[écho, 3 dB, avec Hamming] TEB = 5.07e-02 (125/2464), octets faux = 66/308 (21.4 %)
+  Il y avit mf#Ves�}halie, danw lu ��ât%au de M#�le�baro� du Thun$er-Den-tro�ckX, uh#jeune garçon à quy lp nawFre a6ait!donn�	 les moeurs l%s plus`Douces. Se phyiiono�ie�`nnonç�it won âme. I�axa�t le jug�menr asser drbit, aec ���ssry� le plup sim@ld e’est, je croi�, pour-cette r!Yson qu〔om le n
+
+[écho, 6 dB, sans Hamming] TEB = 8.12e-03 (20/2464), octets faux = 20/308 (6.5 %)
+  Il y avai� en Vestphalie, dcns ng châte`u de M. le barof de Thunder-ten-tronckh, un�Jeune garçgn à qui"la n`ture avait donné les moeurs les plus douces. Sa plysionomie annnnçait son ��me. Il Avait le jugement assez droit, avec l’esprit le plus si}ple; c’est, j� crois, pour cevte raison qu�on le n
+
+[écho, 6 dB, avec Hamming] TEB = 1.14e-02 (28/2464), octets faux = 15/308 (4.9 %)
+  Il y avait en Vestphalie, dans le clâteau de M# le baron du Thun$er-Den-tronckX, uh jeune garçon à qui lp nature avait donné les moeurs les plus douces. Sa phycionomie�annonçait son âme. Il avadt le jugement assez droit, avec ’�sprit le plus sim@le; c’est, je crois, pour cette r!ison qu’on le n
+##### partie7_canal : 128.1 s #####
