@@ -1,0 +1,36 @@
+##### partie4_chaine (17-Nov-2026 00:42:48) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+=== Étape 1 : alignement ===
+Retard des bits codés : 2 bits codés -> K7 = 5
+Retard des bits d'information : D4 = 12 (0 erreurs / 2001 bits)
+-> reporter K7 = 5 et D4 = 12 dans Parametres.m
+
+Coefficients A_w (w = 0..7) : [0 0 9 19 16 12 7 1]
+Eb/N0 =  0.0 dB :    100 erreurs /     1434 bits -> TEB = 6.974e-02
+Eb/N0 =  1.0 dB :    100 erreurs /     1853 bits -> TEB = 5.397e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     2436 bits -> TEB = 4.105e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     4736 bits -> TEB = 2.111e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     9871 bits -> TEB = 1.013e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    22286 bits -> TEB = 4.487e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    47188 bits -> TEB = 2.119e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   144476 bits -> TEB = 6.922e-04
+Eb/N0 =  8.0 dB :    100 erreurs /   501000 bits -> TEB = 1.996e-04
+Eb/N0 =  9.0 dB :     37 erreurs /  1050001 bits -> TEB = 3.524e-05
+Eb/N0 =  0.0 dB :    100 erreurs /      702 bits -> TEB = 1.425e-01
+Eb/N0 =  1.0 dB :    100 erreurs /      966 bits -> TEB = 1.035e-01
+Eb/N0 =  2.0 dB :    100 erreurs /     1303 bits -> TEB = 7.675e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     2515 bits -> TEB = 3.976e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     5472 bits -> TEB = 1.827e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    15636 bits -> TEB = 6.395e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    50427 bits -> TEB = 1.983e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   164183 bits -> TEB = 6.091e-04
+Eb/N0 =  8.0 dB :    100 erreurs /   926543 bits -> TEB = 1.079e-04
+Eb/N0 =  9.0 dB :     16 erreurs /  1050001 bits -> TEB = 1.524e-05
+
+=== Q11 (théorie) ===
+[approximation Q8] avantageux dès 2.35 dB | TEB 1e-4 : 7.86 dB (sans codage 8.40) -> gain 0.53 dB | écart Shannon 7.62 dB
+[théorie exacte] avantageux dès 5.85 dB | TEB 1e-4 : 8.08 dB (sans codage 8.40) -> gain 0.31 dB | écart Shannon 7.84 dB
+##### partie4_chaine : 99.6 s #####

@@ -1,0 +1,17 @@
+##### partie2_1 (17-Nov-2026 00:41:30) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+
+--- Source binaire, N = 100000 bits ---
+p1 théorique   : 0.3600
+f1 empirique   : 0.3576
+IC 95 %        : [0.3570 ; 0.3630]
+-> f1 compatible avec p1
+
+Entropie H(p1)          : 0.9427 bit/symbole
+Entropie empirique H(f1): 0.9406 bit/symbole
+Débit d'information     : 0.9427 bit/s (pour 1 bit/s émis)
+Redondance 1 - H        : 0.0573 bit/symbole
+##### partie2_1 : 2.5 s #####

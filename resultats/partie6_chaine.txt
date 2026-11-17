@@ -1,0 +1,57 @@
+##### partie6_chaine (17-Nov-2026 00:45:00) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+=== Recherche des retards (sigma2 = 0) ===
+porte : D7 =  6 (0 erreurs / 2001 bits)
+rrc   : D7 = 24 (9 erreurs / 2001 bits)
+Eb/N0 =  0.0 dB :    100 erreurs /     1519 bits -> TEB = 6.583e-02
+Eb/N0 =  1.0 dB :    100 erreurs /     1843 bits -> TEB = 5.426e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     2845 bits -> TEB = 3.515e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     4470 bits -> TEB = 2.237e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     7076 bits -> TEB = 1.413e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    18562 bits -> TEB = 5.387e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    48369 bits -> TEB = 2.067e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   155090 bits -> TEB = 6.448e-04
+Eb/N0 =  8.0 dB :    100 erreurs /   503769 bits -> TEB = 1.985e-04
+Eb/N0 =  9.0 dB :     26 erreurs /  1050001 bits -> TEB = 2.476e-05
+Eb/N0 =  0.0 dB :    100 erreurs /     1087 bits -> TEB = 9.200e-02
+Eb/N0 =  1.0 dB :    100 erreurs /     1558 bits -> TEB = 6.418e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     2402 bits -> TEB = 4.163e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     3661 bits -> TEB = 2.731e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     7265 bits -> TEB = 1.376e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    17353 bits -> TEB = 5.763e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    44487 bits -> TEB = 2.248e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   113473 bits -> TEB = 8.813e-04
+Eb/N0 =  8.0 dB :    100 erreurs /   461524 bits -> TEB = 2.167e-04
+Eb/N0 =  9.0 dB :     44 erreurs /  1050001 bits -> TEB = 4.190e-05
+Eb/N0 =  0.0 dB :    100 erreurs /      633 bits -> TEB = 1.580e-01
+Eb/N0 =  1.0 dB :    100 erreurs /      783 bits -> TEB = 1.277e-01
+Eb/N0 =  2.0 dB :    100 erreurs /      956 bits -> TEB = 1.046e-01
+Eb/N0 =  3.0 dB :    100 erreurs /     1280 bits -> TEB = 7.812e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     1605 bits -> TEB = 6.231e-02
+Eb/N0 =  5.0 dB :    100 erreurs /     1844 bits -> TEB = 5.423e-02
+Eb/N0 =  6.0 dB :    100 erreurs /     2525 bits -> TEB = 3.960e-02
+Eb/N0 =  7.0 dB :    100 erreurs /     3248 bits -> TEB = 3.079e-02
+Eb/N0 =  8.0 dB :    100 erreurs /     4097 bits -> TEB = 2.441e-02
+Eb/N0 =  9.0 dB :    100 erreurs /     5898 bits -> TEB = 1.695e-02
+Eb/N0 =  0.0 dB :    100 erreurs /      778 bits -> TEB = 1.285e-01
+Eb/N0 =  1.0 dB :    100 erreurs /      964 bits -> TEB = 1.037e-01
+Eb/N0 =  2.0 dB :    100 erreurs /     1191 bits -> TEB = 8.396e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     1662 bits -> TEB = 6.017e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     2665 bits -> TEB = 3.752e-02
+Eb/N0 =  5.0 dB :    100 erreurs /     3983 bits -> TEB = 2.511e-02
+Eb/N0 =  6.0 dB :    100 erreurs /     6716 bits -> TEB = 1.489e-02
+Eb/N0 =  7.0 dB :    100 erreurs /    12618 bits -> TEB = 7.925e-03
+Eb/N0 =  8.0 dB :    100 erreurs /    24945 bits -> TEB = 4.009e-03
+Eb/N0 =  9.0 dB :    100 erreurs /    56932 bits -> TEB = 1.756e-03
+
+=== Q6 : TEB à 6 dB ===
+Théorie (sans décalage) : 2.39e-03
+alpha = 0.22, T/4       : 3.96e-02
+alpha = 1,    T/4       : 1.49e-02
+
+-> reporter dans Parametres.m : h6 = rrc_coef(alpha, L, span); decal6 = 0; D7 = 24
+   (filtre porte : decal6 = 1, D7 = 6)
+##### partie6_chaine : 79.9 s #####

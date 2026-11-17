@@ -1,0 +1,38 @@
+##### partie2_2 (17-Nov-2026 00:46:45) #####
+=== Q3 : candide.txt ===
+Nombre de caractères    : 201499
+Taille de l'alphabet M  : 97
+Entropie d'ordre 0 H    : 4.5566 bit/caractère
+Code de longueur fixe   : 7 bits/caractère
+Redondance / 8 bits     : 3.4434 bit/car. (43.0 %)
+Redondance / 7 bits     : 2.4434 bit/car. (34.9 %)
+
+=== Q4 : validation sur p = [0.4 0.2 0.2 0.1 0.1] ===
+  p = 0.4  ->  0
+  p = 0.2  ->  111
+  p = 0.2  ->  10
+  p = 0.1  ->  1100
+  p = 0.1  ->  1101
+Préfixe        : 1
+Somme de Kraft : 1.0000 (attendu 1)
+Longueur moy.  : 2.2000 bits (attendu 2.2)
+huffmandict    : 2.2000 bits
+
+=== Q5 : Huffman du texte ===
+Préfixe        : 1 | Kraft = 1.0000
+Longueur moy.  : 4.5791 bit/caractère
+Efficacité H/L : 0.9951 (99.51 %)
+H <= L < H+1   : 4.5566 <= 4.5791 < 5.5566 -> 1
+Mots de 3 à 18 bits
+Codage + décodage : 0.07 s
+Texte restitué sans erreur : 1
+Taille codée            : 922688 bits = 115336 octets
+Taux / 8 bits par car.  : 0.5724 (gain 42.8 %)
+Taux / fichier UTF-8    : 0.5381 (214321 octets sur disque)
+
+=== Q6 : coût de la table ===
+Table complète   : 2821 bits (97 symboles x (14 + 5) + 978 bits de mots)
+Huffman canonique: 1843 bits
+Part de la table pour ce texte : 0.306 %
+Table < 1 % du message dès N >= 61606 caractères
+##### partie2_2 : 2.8 s #####

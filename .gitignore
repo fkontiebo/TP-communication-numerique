@@ -1,0 +1,30 @@
+# --- Fichiers générés par Matlab / Simulink ---
+slprj/
+*.slxc
+*.asv
+*.autosave
+*.mexw64
+*.slx.r20*
+resultats/_run_all_console.log
+
+# --- Documents fournis par l'enseignant (non redistribués) ---
+TP_2026-2027_Simulink.pdf
+webmail.univ-lemans.fr.pdf
+
+# --- Système ---
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Scripts de génération des modèles Simulink (non publiés) ---
+construire_*.m
+
+# --- Archive pour Overleaf (régénérable depuis rapport/latex/) ---
+rapport/rapport_latex_overleaf.zip
+# --- Fichiers auxiliaires LaTeX ---
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk

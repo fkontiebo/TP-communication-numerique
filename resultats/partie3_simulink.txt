@@ -1,0 +1,33 @@
+##### partie3_simulink (17-Nov-2026 00:41:48) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+=== Recherche du retard D (sigma2 = 0, 1000 bits) ===
+D = 0 :  100 erreurs / 221 bits
+D = 1 :  100 erreurs / 193 bits
+D = 2 :    0 erreurs / 1001 bits
+D = 3 :  100 erreurs / 194 bits
+-> reporter la bonne valeur dans D ci-dessous.
+
+Eb/N0 =  0.0 dB :    100 erreurs /     1434 bits -> TEB = 6.974e-02
+Eb/N0 =  1.0 dB :    100 erreurs /     1853 bits -> TEB = 5.397e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     2436 bits -> TEB = 4.105e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     4736 bits -> TEB = 2.111e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     9871 bits -> TEB = 1.013e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    22286 bits -> TEB = 4.487e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    47188 bits -> TEB = 2.119e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   144476 bits -> TEB = 6.922e-04
+Eb/N0 =  8.0 dB :    100 erreurs /   501000 bits -> TEB = 1.996e-04
+Eb/N0 =  9.0 dB :     37 erreurs /  1050001 bits -> TEB = 3.524e-05
+Eb/N0 =  0.0 dB :    100 erreurs /      309 bits -> TEB = 3.236e-01
+Eb/N0 =  1.0 dB :    100 erreurs /      322 bits -> TEB = 3.106e-01
+Eb/N0 =  2.0 dB :    100 erreurs /      335 bits -> TEB = 2.985e-01
+Eb/N0 =  3.0 dB :    100 erreurs /      352 bits -> TEB = 2.841e-01
+Eb/N0 =  4.0 dB :    100 erreurs /      358 bits -> TEB = 2.793e-01
+Eb/N0 =  5.0 dB :    100 erreurs /      384 bits -> TEB = 2.604e-01
+Eb/N0 =  6.0 dB :    100 erreurs /      426 bits -> TEB = 2.347e-01
+Eb/N0 =  7.0 dB :    100 erreurs /      476 bits -> TEB = 2.101e-01
+Eb/N0 =  8.0 dB :    100 erreurs /      540 bits -> TEB = 1.852e-01
+Eb/N0 =  9.0 dB :    100 erreurs /      672 bits -> TEB = 1.488e-01
+##### partie3_simulink : 57.4 s #####

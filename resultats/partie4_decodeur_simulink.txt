@@ -1,0 +1,21 @@
+##### partie4_decodeur_simulink (17-Nov-2026 00:42:48) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+Trames décodées : 144 / 144
+
+=== Q6 : décodeur par syndrome (Simulink) ===
+Cas               | syndrome S | 16 messages corrects
+sans erreur       |     0      | 1
+erreur sur m0     |     6      | 1
+erreur sur m1     |     3      | 1
+erreur sur m2     |     7      | 1
+erreur sur m3     |     5      | 1
+erreur sur r0     |     4      | 1
+erreur sur r1     |     2      | 1
+erreur sur r2     |     1      | 1
+deux erreurs m0,m1 |     5      | 0 (16/16 messages faux)
+
+Identique au décodeur matriciel (144 trames) : 1
+##### partie4_decodeur_simulink : 0.5 s #####

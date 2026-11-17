@@ -1,0 +1,28 @@
+##### partie5_q6 (17-Nov-2026 00:44:39) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+=== Étape 1 : alignement ===
+Retard des bits codés : 2 bits codés -> K7c = 5
+Retard des bits d'information : D6 = 12 (0 erreurs / 2001 bits)
+-> reporter K7c = 5 et D6 = 12 dans Parametres.m
+
+Eb/N0 =  0.0 dB :    100 erreurs /      857 bits -> TEB = 1.167e-01
+Eb/N0 =  1.0 dB :    100 erreurs /     1180 bits -> TEB = 8.475e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     1801 bits -> TEB = 5.552e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     2565 bits -> TEB = 3.899e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     6698 bits -> TEB = 1.493e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    15285 bits -> TEB = 6.542e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    44787 bits -> TEB = 2.233e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   162685 bits -> TEB = 6.147e-04
+Eb/N0 =  8.0 dB :     99 erreurs /  1050001 bits -> TEB = 9.429e-05
+Eb/N0 =  9.0 dB :     10 erreurs /  1050001 bits -> TEB = 9.524e-06
+
+=== Q6 : comparaison (débit utile fixé à 1/Tb) ===
+Chaîne                   | TEB        | Durée symbole  | Bande relative
+Binaire (P3)             | Q(..)      | Tb             | 1.000
+Hamming binaire (P4)     | P4         | 4Tb/7          | 1.750
+QPSK (P5)                | Q(..)      | 2Tb            | 0.500
+Hamming + QPSK           | = P4       | 8Tb/7          | 0.875
+##### partie5_q6 : 17.6 s #####

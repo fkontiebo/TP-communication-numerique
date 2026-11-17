@@ -1,0 +1,32 @@
+##### partie2_5 (17-Nov-2026 00:41:42) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+=== Q10 : validation sur ABAABABAABAB ===
+(0,A) (0,B) (1,A) (2,A) (4,A) (4,B) 
+Attendu : (0,A) (0,B) (1,A) (2,A) (4,A) (4,B)
+Décodage correct : 1 | coût : 17 bits pour 12 symboles
+Test aléatoire (1e4 symboles, 4 lettres) : 1
+
+=== Q11 : LZ78 sur candide.txt ===
+Extrait              |        N | Couples | LZ78 b/car |       H0 | Décod.
+Texte complet        |   201499 |   39109 |     4.1388 |   4.5566 |      1
+5000 premiers car.   |     5000 |    1579 |     5.2750 |   4.9709 |      1
+
+=== Q11 : source binaire p1_ext = 0.11, H = 0.4999 ===
+   N bits |  Couples | LZ78 b/bit |   LZ78/H
+     1000 |      106 |     0.7210 |    1.442
+     1778 |      173 |     0.7323 |    1.465
+     3162 |      276 |     0.7113 |    1.423
+     5623 |      433 |     0.6792 |    1.359
+    10000 |      704 |     0.6721 |    1.344
+    17783 |     1163 |     0.6697 |    1.340
+    31623 |     1864 |     0.6426 |    1.285
+    56234 |     3064 |     0.6355 |    1.271
+   100000 |     5024 |     0.6214 |    1.243
+   177828 |     8297 |     0.6077 |    1.216
+   316228 |    13811 |     0.6033 |    1.207
+   562341 |    23151 |     0.6004 |    1.201
+  1000000 |    38791 |     0.5939 |    1.188
+##### partie2_5 : 0.5 s #####

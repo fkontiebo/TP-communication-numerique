@@ -1,0 +1,24 @@
+##### partie2_4 (17-Nov-2026 00:41:38) #####
+=== Q8 : bits par caractère (candide.txt) ===
+Méthode          | Texte complet | 5000 premiers car.
+-----------------+---------------+-------------------
+Longueur fixe    |        7.0000 |             7.0000
+Entropie H0      |        4.5566 |             4.9709
+Huffman          |        4.5791 |             5.0070
+H(X1X2)/2        |        4.0108 |             4.0709
+gzip             |        3.1579 |             3.8192
+bzip2            |        2.5127 |             3.6032
+7z (LZMA)        |        2.7533 |             3.9680
+
+H(X2|X1) = H(X1X2) - H(X1)  : 3.4649 | 3.1708 bit/car.
+Paires distinctes observées : 1545 sur 9409 possibles | 702 sur 7396
+
+=== Q9 : sortie du codeur de Huffman (922688 bits) ===
+Proportion de 1          : 0.5324 (idéal 0.5)
+Entropie d'un bit H(f1)  : 0.9970 bit/bit
+Entropie des paires / 2  : 0.9966 bit/bit (idéal 1)
+  P(00) = 0.2111 (idéal 0.25)
+  P(01) = 0.2556 (idéal 0.25)
+  P(10) = 0.2573 (idéal 0.25)
+  P(11) = 0.2759 (idéal 0.25)
+##### partie2_4 : 2.8 s #####

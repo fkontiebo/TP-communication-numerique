@@ -1,0 +1,32 @@
+##### partie3_canaux (17-Nov-2026 00:46:50) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+=== Q1-Q2 : CBS (1000000 bits) ===
+pe = 0.0680 | TEB simulé = 0.06782 | IC 95 % = [0.06733 ; 0.06832] -> compatible : 1
+
+=== Q3 : capacité ===
+C(pe) = 0.6416 bit/utilisation | R = 4/7 = 0.5714 -> R < C : 1
+R = 4/7 possible tant que pe < 0.0876 | C(0.5) = 0
+
+=== Q4 : bruit uniforme, a = 1.64, A = 1 ===
+Zone de recouvrement [A-a, a-A] = [-0.64 ; 0.64], f(r|0) = f(r|1) = 1/(2a)
+p0 > p1 : on décide 0 sur toute la zone -> seuil optimal s* = a - A = 0.64
+
+=== Q5-Q6 : uniforme ===
+Pe théorique : s = 0 -> 0.19512 | s = a-A -> 0.14049
+Simulé       : s = 0 -> 0.19487 | meilleur seuil testé 0.616 -> 0.14261
+
+=== Q7-Q8 : gaussien, sigma = 0.88 ===
+Seuil optimal s* = sigma^2/(2A) ln(p0/p1) = 0.2228
+Théorie : Pe(0) = 0.12790 | Pe(s*) = 0.12058 | gain = 5.73 %
+Simulé  : TEB(0) = 0.12811 | TEB(s*) = 0.12078 | meilleur seuil testé 0.225
+IC 95 % sur TEB(s*) : ±0.00064
+
+=== Q9 : comparaison ===
+Canal        | Seuil optimal          |        TEB
+CBS          | (pas de seuil)         |    0.06782
+Uniforme     | a - A = 0.640          |    0.14049
+Gaussien     | s* = 0.2228            |    0.12058
+##### partie3_canaux : 1.9 s #####

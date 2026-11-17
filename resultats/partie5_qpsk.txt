@@ -1,0 +1,42 @@
+##### partie5_qpsk (17-Nov-2026 00:44:29) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+=== Q1 : mapping de Gray ===
+b1 b2 | k | symbole
+ 0  0 | 1 | +0.707 +0.707j
+ 0  1 | 7 | +0.707 -0.707j
+ 1  0 | 3 | -0.707 +0.707j
+ 1  1 | 5 | -0.707 -0.707j
+I = (1 - 2 b1)/sqrt(2), Q = (1 - 2 b2)/sqrt(2) : deux BPSK indépendantes
+Es = |s|^2 = 1.00 -> Eb = Es/2 = 0.50
+
+=== Q2 : validation sans bruit ===
+D5 = 2 : 0 erreurs / 2001 bits -> reporter D5 = 2 dans Parametres.m
+
+Eb/N0 =  0.0 dB :    100 erreurs /     1193 bits -> TEB = 8.382e-02
+Eb/N0 =  1.0 dB :    100 erreurs /     1693 bits -> TEB = 5.907e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     2801 bits -> TEB = 3.570e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     4273 bits -> TEB = 2.340e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     7719 bits -> TEB = 1.296e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    18002 bits -> TEB = 5.555e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    48090 bits -> TEB = 2.079e-03
+Eb/N0 =  7.0 dB :    100 erreurs /   149685 bits -> TEB = 6.681e-04
+Eb/N0 =  8.0 dB :    100 erreurs /   583049 bits -> TEB = 1.715e-04
+Eb/N0 =  9.0 dB :     30 erreurs /  1050001 bits -> TEB = 2.857e-05
+Eb/N0 =  0.0 dB :    100 erreurs /      838 bits -> TEB = 1.193e-01
+Eb/N0 =  1.0 dB :    100 erreurs /     1249 bits -> TEB = 8.006e-02
+Eb/N0 =  2.0 dB :    100 erreurs /     1891 bits -> TEB = 5.288e-02
+Eb/N0 =  3.0 dB :    100 erreurs /     3054 bits -> TEB = 3.274e-02
+Eb/N0 =  4.0 dB :    100 erreurs /     6455 bits -> TEB = 1.549e-02
+Eb/N0 =  5.0 dB :    100 erreurs /    14222 bits -> TEB = 7.031e-03
+Eb/N0 =  6.0 dB :    100 erreurs /    34666 bits -> TEB = 2.885e-03
+Eb/N0 =  7.0 dB :    100 erreurs /    94358 bits -> TEB = 1.060e-03
+Eb/N0 =  8.0 dB :    100 erreurs /   394945 bits -> TEB = 2.532e-04
+Eb/N0 =  9.0 dB :     53 erreurs /  1050001 bits -> TEB = 5.048e-05
+
+=== Q5 ===
+TEB = 1e-4 : Gray 8.40 dB | naturel 8.63 dB -> écart 0.23 dB
+Rapport des TEB à fort Eb/N0 : naturel / Gray -> 1.5
+##### partie5_qpsk : 10.1 s #####

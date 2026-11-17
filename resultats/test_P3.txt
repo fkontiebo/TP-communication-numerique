@@ -1,0 +1,26 @@
+##### test_P3 (17-Nov-2026 00:41:47) #####
+--- Paramètres de KONTIEBO BÉNÉWINDÉ ---
+p1 = 0.36 | p1_ext = 0.11 | pe = 0.068 | a = 1.64 | sigma = 0.88
+L = 16 | alpha = 0.35 | beta = 0.23 | tau = 2 T | graine = 33
+Seuil optimal gaussien s* = 0.2228
+Eb/N0 =  0.0 dB :   7870 erreurs /   100000 bits -> TEB = 7.870e-02
+Eb/N0 =  1.0 dB :   5628 erreurs /   100000 bits -> TEB = 5.628e-02
+Eb/N0 =  2.0 dB :   3738 erreurs /   100000 bits -> TEB = 3.738e-02
+Eb/N0 =  3.0 dB :   2254 erreurs /   100000 bits -> TEB = 2.254e-02
+Eb/N0 =  4.0 dB :   1221 erreurs /   100000 bits -> TEB = 1.221e-02
+Eb/N0 =  5.0 dB :    551 erreurs /   100000 bits -> TEB = 5.510e-03
+Eb/N0 =  6.0 dB :    211 erreurs /   100000 bits -> TEB = 2.110e-03
+Eb/N0 =  7.0 dB :    161 erreurs /   200000 bits -> TEB = 8.050e-04
+Eb/N0 =  8.0 dB :    119 erreurs /   700000 bits -> TEB = 1.700e-04
+Eb/N0 =  9.0 dB :     26 erreurs /  1000000 bits -> TEB = 2.600e-05
+Eb/N0 =  0.0 dB :  36007 erreurs /   100000 bits -> TEB = 3.601e-01
+Eb/N0 =  1.0 dB :  34401 erreurs /   100000 bits -> TEB = 3.440e-01
+Eb/N0 =  2.0 dB :  32700 erreurs /   100000 bits -> TEB = 3.270e-01
+Eb/N0 =  3.0 dB :  30758 erreurs /   100000 bits -> TEB = 3.076e-01
+Eb/N0 =  4.0 dB :  28643 erreurs /   100000 bits -> TEB = 2.864e-01
+Eb/N0 =  5.0 dB :  26275 erreurs /   100000 bits -> TEB = 2.627e-01
+Eb/N0 =  6.0 dB :  23877 erreurs /   100000 bits -> TEB = 2.388e-01
+Eb/N0 =  7.0 dB :  21337 erreurs /   100000 bits -> TEB = 2.134e-01
+Eb/N0 =  8.0 dB :  18661 erreurs /   100000 bits -> TEB = 1.866e-01
+Eb/N0 =  9.0 dB :  15902 erreurs /   100000 bits -> TEB = 1.590e-01
+##### test_P3 : 1.0 s #####
