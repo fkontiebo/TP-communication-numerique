@@ -119,3 +119,13 @@ open_system('chaine_P4')   % ...ou un modèle : il s'exécute directement (bouto
 - Solveur Simulink à pas fixe discret, pas T<sub>e</sub> = T<sub>b</sub>/L ; changements de rythme par *Buffer / Unbuffer / Rate Transition*.
 - TEB mesuré jusqu'à 100 erreurs ou 10⁶ bits, avec intervalle de confiance à 95 % ; graines fixées (`rng(graine)`, paramètre *Seed*).
 - Paramètres personnels tirés une fois puis figés dans `mes_parametres.mat` (supprimer ce fichier pour en tirer de nouveaux).
+
+## Déclaration d'usage de l'IA
+
+Un assistant d'IA générative (Claude, Anthropic) a été utilisé comme outil d'appui pour ce TP, dans trois cas précis :
+
+- **Rédaction du rapport** : reformulation et amélioration de la clarté de passages du compte rendu dont le contenu (démarche, résultats, analyses) est le mien ;
+- **Débogage** : aide à l'identification et à la correction d'erreurs dans le code Matlab et les modèles Simulink ;
+- **Vidéo** : aide à l'écriture du script de la vidéo de présentation.
+
+**Tout ce qui est issu de l'IA a été relu, vérifié et compris avant d'être adopté** : chaque correction de code a été testée par simulation, chaque résultat numérique provient de l'exécution des scripts du dépôt (et se reproduit avec `run_all`), et chaque reformulation a été contrôlée pour qu'elle reste fidèle au travail réalisé. La conception de la chaîne, les choix techniques, les simulations et l'interprétation des résultats relèvent de mon propre travail.
