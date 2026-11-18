@@ -9,19 +9,19 @@ codage de source → codage de canal → modulation QPSK → mise en forme RRC �
 
 📄 **Compte rendu : [`rapport/rapport_Benewinde_Kontiebo.pdf`](rapport/rapport_Benewinde_Kontiebo.pdf)** — source LaTeX dans [`rapport/latex/`](rapport/latex/) (compilation pdfLaTeX, par exemple sur Overleaf)
 
-🎥 **Vidéo de présentation (≈ 30 min) : [regarder la vidéo](LIEN_VIDEO)** — tout le TP expliqué : code, modèles Simulink, démonstrations en direct et résultats.
+🎥 **Vidéo de présentation (≈ 30 min) : [regarder la vidéo](https://drive.google.com/file/d/1YZJHBDIkoWLP0zdbsSZrMybrxrPkuh2F/view?usp=drive_link)** — tout le TP expliqué : code, modèles Simulink, démonstrations en direct et résultats.
 
 | Temps | Chapitre |
 |:--:|---|
 | 0:00 | Introduction : la chaîne complète |
-| 2:00 | Organisation du code et méthode (paramètres, `trace_TEB`, recherche automatique des retards, reproductibilité) |
-| 5:00 | Partie 2 – Codage de source : entropie, Huffman sur *Candide*, extension de source, compresseurs, LZ78 |
-| 10:00 | Partie 3 – Chaîne de base : CBS, seuils optimaux, détecteur optimal (intégrateur) sous Simulink |
-| 14:30 | Partie 4 – Code de Hamming (7,4) : matrices G/H, syndrome, codeur à registre, gain de codage |
-| 19:00 | Partie 5 – Modulation QPSK : mapping de Gray, constellations, Hamming + QPSK |
-| 22:00 | Partie 6 – Filtre en racine de cosinus surélevé : Nyquist, spectre, diagramme de l'œil, décalage T/4 |
-| 26:00 | Partie 7 – Canal à deux trajets : perte de Nyquist, égaliseur ZF, transmission d'un texte |
-| 29:30 | Conclusion et limites de Shannon |
+| 1:41 | Organisation du code et méthode (paramètres, `trace_TEB`, recherche automatique des retards, reproductibilité) |
+| 5:17 | Partie 2 – Codage de source : entropie, Huffman sur *Candide*, extension de source, compresseurs, LZ78 |
+| 9:57 | Partie 3 – Chaîne de base : CBS, seuils optimaux, détecteur optimal (intégrateur) sous Simulink |
+| 13:31 | Partie 4 – Code de Hamming (7,4) : matrices G/H, syndrome, codeur à registre, gain de codage |
+| 18:08 | Partie 5 – Modulation QPSK : mapping de Gray, constellations, Hamming + QPSK |
+| 20:24 | Partie 6 – Filtre en racine de cosinus surélevé : Nyquist, spectre, diagramme de l'œil, décalage T/4 |
+| 24:15 | Partie 7 – Canal à deux trajets : perte de Nyquist, égaliseur ZF, transmission d'un texte |
+| 27:51 | Conclusion et limites de Shannon |
 
 Les démonstrations de la vidéo se rejouent avec `demo_video` (dans `matlab/`, après `init_tp`).
 
